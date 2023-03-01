@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
+import Pokeinfo from "./Pokeinfo";
+import Card from "./Card";
 
 export default function Main() {
     const [pokeData, setPokeData] = useState([]);
