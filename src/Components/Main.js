@@ -33,4 +33,28 @@ export default function Main() {
         pokeFun();
     },[url])
     
+    return (
+
+        <div className="container">
+            <div className="left-content">
+                <Card pokemon={pokeData} loading={loading} infoPokemon={poke=>setPokeDex(poke)}/>
+                    
+                <div className="btn-group">
+                    {  prevUrl && <button type="button" className="btn btn-primary" onClick={()=>{
+                        setPokeData([])
+                        setUrl(prevUrl) 
+                    }}>Previous</button>}
+
+                    { nextUrl && <button type="button" className="btn btn-primary" onClick={()=>{
+                        setPokeData([])
+                        setUrl(nextUrl)
+                    }}>Next</button>}
+
+                </div>
+            </div>
+            <div className="right-content">
+                <Pokeinfo data={pokeDex}/>
+            </div>
+        </div>
+    )
 }
