@@ -1,0 +1,21 @@
+volumes:
+  postgres-data:
+    external: true
+  pg-admin:
+    external: true
+
+services:
+  ghi:
+    image: node:lts-bullseye
+    command: /bin/bash run.sh
+    working_dir: /app
+    volumes:
+      - ./ghi:/app
+    ports:
+      - "3000:3000"
+    environment:
+      NODE_ENV: development
+      HOST_OS: ${OS}
+      HOST: "0.0.0.0"
+      PUBLIC_URL: http://localhost:3000
+      #future services here for BACKEND/FRONTEND
